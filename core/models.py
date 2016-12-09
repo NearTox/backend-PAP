@@ -13,3 +13,6 @@ class DatosPostales(models.Model):
   estado = models.CharField(blank=False, max_length=250)
   pais = models.CharField(blank=False, max_length=250)
 
+  def __str__(self):
+    return self.nombre + " " + self.calle
+    
