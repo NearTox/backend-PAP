@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from core.models import (DatosPostales, Cliente, Mensajero, Orden)
-from .serializer import (
-    DatosPostalesSerializer,
-    MensajeroSerializer,
-    ClienteSerializer,
-    OrdenSerializer,
-)
+from .serializers.DatosPostales import DatosPostalesSerializer
+from .serializers.Mensajero import (MensajeroSerializerGET, MensajeroSerializerPATCH, MensajeroSerializerNEW)
+from .serializers.Cliente import (ClienteSerializerGET, ClienteSerializerPATCH, ClienteSerializerNEW)
+from .serializers.Orden import (OrdenSerializerGET, OrdenSerializerPATCH, OrdenSerializerNEW)
 # Create your views here.
 
 class DatosPostalesViewSet(viewsets.ModelViewSet):
@@ -24,35 +22,32 @@ class DatosPostalesViewSet(viewsets.ModelViewSet):
 class MensajeroViewSet(viewsets.ModelViewSet):
   """Detalles del Mensajero"""
   queryset = Mensajero.objects.all()
-  serializer_class = MensajeroSerializer
-  """def get_serializer_class(self):
+  def get_serializer_class(self):
     if self.action == 'list':
-      return DatosPostalesSerializerGET
+      return MensajeroSerializerGET
     elif self.action == 'partial_update':
-      return DatosPostalesSerializerPOST
+      return MensajeroSerializerPATCH
     else:
-      return DatosPostalesSerializerNEW"""
+      return MensajeroSerializerNEW
 
 class ClienteViewSet(viewsets.ModelViewSet):
   """Detalles del Cliente"""
   queryset = Cliente.objects.all()
-  serializer_class = ClienteSerializer
-  """def get_serializer_class(self):
+  def get_serializer_class(self):
     if self.action == 'list':
-      return DatosPostalesSerializerGET
+      return ClienteSerializerGET
     elif self.action == 'partial_update':
-      return DatosPostalesSerializerPOST
+      return ClienteSerializerPATCH
     else:
-      return DatosPostalesSerializerNEW"""
+      return ClienteSerializerNEW
 
 class OrdenViewSet(viewsets.ModelViewSet):
   """Detalles de la Orden"""
   queryset = Orden.objects.all()
-  serializer_class = OrdenSerializer
-  """def get_serializer_class(self):
+  def get_serializer_class(self):
     if self.action == 'list':
-      return DatosPostalesSerializerGET
+      return OrdenSerializerGET
     elif self.action == 'partial_update':
-      return DatosPostalesSerializerPOST
+      return OrdenSerializerPATCH
     else:
-      return DatosPostalesSerializerNEW"""
+      return OrdenSerializerNEW
