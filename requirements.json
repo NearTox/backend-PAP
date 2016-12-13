@@ -1,0 +1,13 @@
+{
+  "Django":"1.10.4",
+  "celery":true,
+  "django-filter":true,
+  "djangorestframework":true,
+  "djangorestframework-jwt":true,
+  "django-phonenumber-field":true,
+  "Pillow":true,
+  "redis":false,
+  "rest-condition":true,
+  "dj-database-url":false,
+  "whitenoise":false
+}
