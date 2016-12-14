@@ -9,5 +9,8 @@
   "redis":false,
   "rest-condition":true,
   "dj-database-url":false,
-  "whitenoise":false
+  "whitenoise":false,
+  "gunicorn":false,
+  "psycopg2":false,
+  "requests":true,
 }
