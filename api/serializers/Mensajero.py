@@ -13,12 +13,7 @@ class MensajeroSerializerGET(serializers.ModelSerializer):
 class MensajeroSerializerPATCH(serializers.ModelSerializer):
   nombre = serializers.CharField(required=False)
   telefono = PhoneNumberSerializer(required=False)
-  Ordenes = serializers.SlugRelatedField(
-      slug_field='id',
-      many=True,
-      queryset=Orden.objects.all(),
-      read_only=False,
-      required=False)
+  
   class Meta:
     model = Mensajero
     exclude = ('id',)
@@ -26,12 +21,7 @@ class MensajeroSerializerPATCH(serializers.ModelSerializer):
 class MensajeroSerializerNEW(serializers.ModelSerializer):
   nombre = serializers.CharField(required=True)
   telefono = PhoneNumberSerializer(required=True)
-  Ordenes = serializers.SlugRelatedField(
-      slug_field='id',
-      many=True,
-      queryset=Orden.objects.all(),
-      read_only=False,
-      required=False)
+
   class Meta:
     model = Mensajero
     fields = '__all__'

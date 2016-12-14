@@ -63,7 +63,7 @@ class Orden(models.Model):
     pass
 
   def __str__(self):
-    return "Orden: {1} ".format(self.id)
+    return "Orden: " + str(self.id)
 
 class Mensajero(models.Model):
   nombre = models.CharField(blank=False, max_length=250)

@@ -2,15 +2,21 @@
 from rest_framework import serializers
 from core.models import (Orden, Cliente)
 from .Cliente import ClienteSerializerGET
+from .Mensajero import MensajeroSerializerGET
 class OrdenSerializerGET(serializers.ModelSerializer):
   cliente = ClienteSerializerGET(many=False, read_only=True)
+  mensajero = MensajeroSerializerGET(many=False, read_only=True)
   class Meta:
     model = Orden
     fields = '__all__'
 
 class OrdenSerializerPATCH(serializers.ModelSerializer):
-  latitud_mensajero = serializers.DecimalField(required=False, min_value=-180.0, max_value=180.0, default=0, max_digits=13, decimal_places=10)
-  longitud_mensajero = serializers.DecimalField(required=False, min_value=-180.0, max_value=180.0, default=0, max_digits=13, decimal_places=10)
+  latitud_mensajero = serializers.DecimalField(
+      required=False, min_value=-180.0, max_value=180.0,
+      default=0, max_digits=13, decimal_places=10)
+  longitud_mensajero = serializers.DecimalField(
+      required=False, min_value=-180.0, max_value=180.0,
+      default=0, max_digits=13, decimal_places=10)
   
   observaciones = serializers.CharField(required=False)
   #estado =
