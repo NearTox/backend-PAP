@@ -1,1 +1,1 @@
-web: gunicorn MyStock.wsgi
+web: gunicorn puntoapunto.wsgi
