@@ -15,5 +15,6 @@ logger = logging.getLogger(__name__)
 @receiver(pre_save, sender=Orden)
 def send_email_per_item(sender, instance, **kwargs):
   if sender.precio == 0:
-    calc_precio.delay(sender)
+    #calc_precio.delay(sender)
+    calc_precio(sender)
     logger.info("Se calculara el precio")

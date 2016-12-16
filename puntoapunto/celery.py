@@ -17,10 +17,11 @@ app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 try:
   from .local_settings import *
 except ImportError:
-  app.conf.update(
+  """app.conf.update(
       BROKER_URL=os.environ['REDIS_URL'],
       CELERY_RESULT_BACKEND=os.environ['REDIS_URL']
-  )
+  )"""
+  pass
 
 @app.task(bind=True)
 def debug_task(self):
