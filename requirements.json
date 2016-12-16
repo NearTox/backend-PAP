@@ -5,6 +5,7 @@
   "djangorestframework":true,
   "djangorestframework-jwt":true,
   "django-phonenumber-field":true,
+  "django-cors-headers":true,
   "Pillow":true,
   "redis":false,
   "rest-condition":true,

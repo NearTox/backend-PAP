@@ -30,7 +30,14 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '*',
 ]
-
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'example.com',
+    'localhost:8000',
+    'localhost:8080',
+    '127.0.0.1:8080',
+    '127.0.0.1:8080'
+)
 
 # Application definition
 
@@ -43,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phonenumber_field',
     'rest_framework',
+    'corsheaders',
     'api',
     'core',
 ]
@@ -55,7 +63,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 
