@@ -7,3 +7,5 @@ DATABASES = {
     }
 }
 DEBUG = True
+
+BROKER_URL = 'redis://localhost:6379/'
