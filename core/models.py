@@ -33,7 +33,7 @@ class Cliente(models.Model):
     unique_together = ('nombre', 'email', 'telefono', 'empresa')
 
   def __str__(self):
-    return self.nombre + " " + self.email #+ " " + self.telefono 
+    return self.nombre + " " + self.email #+ " " + self.telefono
 
 class Orden(models.Model):
   latitud_origen = models.DecimalField(max_digits=13, decimal_places=10)
@@ -41,7 +41,7 @@ class Orden(models.Model):
 
   latitud_destino = models.DecimalField(max_digits=13, decimal_places=10)
   longitud_destino = models.DecimalField(max_digits=13, decimal_places=10)
-  
+
   latitud_mensajero = models.DecimalField(default=0, max_digits=13, decimal_places=10)
   longitud_mensajero = models.DecimalField(default=0, max_digits=13, decimal_places=10)
 
@@ -53,14 +53,6 @@ class Orden(models.Model):
 
   cliente = models.ForeignKey(Cliente, blank=True, null=True, on_delete=models.SET_NULL)
   mensajero = models.ForeignKey('Mensajero', blank=True, null=True, on_delete=models.SET_NULL)
-
-  def update_precio(self):
-    #make the price
-    pass
-
-  def update_mensajero(self):
-    #make the mensajero
-    pass
 
   def __str__(self):
     return "Orden: " + str(self.id)
